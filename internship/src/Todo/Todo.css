@@ -1,0 +1,408 @@
+
+
+.navbar-todo-container{
+    height:65px;
+    background:rgb(29, 122, 243);
+}
+.your-todo{
+    color: white;
+    font-weight:15px;
+    padding: 10px 0px 10px 25px;
+}
+.signin-todo-container{
+    background: rgb(197, 219, 252);
+    height: calc(100vh - 65px);
+    padding: 5px 5px 5px 5px;
+}
+.signin-todo-form{
+    position: absolute;
+    background-color: white;
+    width:380px;
+    top: 50%; /* Position Y halfway in */
+    left: 50%; /* Position X halfway in */
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%); /* Move it halfway back(x,y) */
+    padding: 10px 25px;
+    border-radius: 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+.signup-todo-container{
+    background: rgb(197, 219, 252);
+    height:calc(100vh - 65px);
+    padding: 5px 5px 5px 5px;
+}
+.signinform-todo-input{
+    width:100%;
+    padding: 3px;
+    /* margin-bottom: 20px; */
+    margin-top: -10px;
+    border: 1px solid rgba(185, 182, 182, 0.959);
+}
+.todo-btn{
+    height: 30px;
+    width:130px;
+    border: 0px solid;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+
+.signup-todo-form{
+    position: absolute;
+    background-color: white;
+    width:700px;
+    top: 50%; /* Position Y halfway in */
+    left: 50%; /* Position X halfway in */
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%); /* Move it halfway back(x,y) */
+    padding: 10px 25px;
+    border-radius: 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; 
+    -ms-flex-wrap: wrap; 
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.signup-todo-input{
+    width:300px;
+    padding: 3px;
+    /* margin-bottom: 25px; */
+    margin-top: -10px;
+    border: 1px solid rgba(185, 182, 182, 0.959);
+}
+
+.signup-todo-btn{
+    height: 35px;
+    width:140px;
+    border: 0px solid;
+    color: white;
+    border-radius: 8px;
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+}
+
+.signin-todo-headings{
+    
+    margin-top: 20px;
+}
+.signup-todo-form-headings{
+    margin-top: 20px;
+}
+
+
+
+
+
+
+.show-task-container{
+    /* background: rgb(197, 219, 252); */
+    height:auto;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.display-task-box{
+    /* display: flex; */
+    width:fit-content;
+    height:fit-content;
+    /* background-color:white;  */
+    /* border: 2px solid rgb(29, 122, 243) !important; */
+    position: relative;
+    padding:0px 0px 10px 0px;
+}
+.display-task-todo-buttons{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+.display-task-todo-btn{
+    font-weight:bold !important;
+    border-radius: 5px !important;
+    border: 2px solid rgb(29, 122, 243)!important;
+    margin: 3px !important;
+}
+.display-task-todo-btn:hover{
+    font-weight:bold !important;
+    background-color:rgb(29, 122, 243)!important ;
+    color: black !important;
+}
+
+.show-running-task-container{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.show-running-task-box{
+    margin-top: 10px;
+    height: 470px;
+    width: 1000px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+   
+}
+.show-running-task{
+    width:100%;
+    height:300px;
+    border: 2px solid rgb(148, 147, 147);
+    overflow-y:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.show-running-task-card{
+    height:auto;
+    width:95%;
+    border: 2px solid rgb(177, 173, 173);
+    /* background: red; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.add-task-container{
+    background: rgb(197, 219, 252);
+    height: calc(100vh - 65px);
+    padding: 5px 5px 5px 5px;
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+}
+
+.add-task-box{
+    width:min-content;
+    height: min-content;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-y:auto;
+}
+.add-task-headings{
+    margin-top: 10px;
+}
+
+
+.show-detail-task-headings{
+    font-weight: bold;
+}
+
+.update-task-container{
+    background: rgb(197, 219, 252);
+    height: calc(100vh - 65px);
+    padding: 5px 5px 5px 5px;
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+}
+.update-task-box{
+    width:min-content;
+    height:min-content;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-y:auto;
+}
+
+@media screen and (width<=495px) and (width>=395px) {
+    .signup-todo-form{
+        position: relative;
+        margin-top: 0px;
+        width:375px;
+    }
+    .add-task-box{
+        width:90%;
+    }
+}
+
+
+@media screen and (width<=435px) and (width>=395px) {
+    .signup-todo-form{
+        position: relative;
+        margin-top: 0px;
+        width:375px;
+    }
+    
+}
+
+
+@media screen and (width<=393px){
+    .signin-todo-form{
+        width: 330px;
+    }
+    .signup-todo-container{
+        background: rgb(197, 219, 252);
+        height:calc(100vh - 0px);
+        padding: 5px 5px 5px 5px;
+    }
+    .signup-todo-form{
+        position: relative;
+        margin-top: 5px;
+        width:340px;
+    }
+    .signup-todo-input{
+        width:70vw;
+        padding: 3px;
+        margin-top: -10px;
+        border: 1px solid rgba(185, 182, 182, 0.959);
+    }
+    .signup-todo-btn{
+        height: 35px;
+        width:90px;
+        border: 0px solid;
+        color: white;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    .signup-todo-buttons{
+       width: 100%;
+       display: -webkit-box;
+       display: -ms-flexbox;
+       display: flex;
+       -webkit-box-pack: center;
+           -ms-flex-pack: center;
+               justify-content: center;
+       -webkit-box-align: center;
+           -ms-flex-align: center;
+               align-items: center;
+    }
+}
+
+
+
+@media screen and (width<=325px){
+    .signin-todo-form{
+        width:280px;
+        top: 16%;
+        left: 7%;
+        -webkit-transform: translate(0%,0%);
+            -ms-transform: translate(0%,0%);
+                transform: translate(0%,0%);
+    }
+    .todo-btn{
+        width: 95px;
+    }
+    .signup-todo-container{
+        background: rgb(197, 219, 252);
+        height:690px;
+        padding: 5px 5px 5px 5px;
+    }
+    .signup-todo-form{
+        position: relative;
+        /* margin-top:330px; */
+        margin-top:-5px;
+        width:280px;
+    }
+}
+
+
+
+@media screen and (width<=380px) and (width>=365px){
+    .signup-todo-container{
+        background: rgb(197, 219, 252);
+        height: 680px;;
+        padding: 5px 5px 5px 5px;
+    }
+    .signup-todo-form{
+        position: relative;
+        margin-top: 0px;
+        width:330px;
+    }
+    .signup-todo-input{
+        width:65vw;
+        padding: 3px;
+        margin-top: -10px;
+        border: 1px solid rgba(185, 182, 182, 0.959);
+    }
+    .signup-todo-buttons{
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+     }
+     .signup-todo-btn{
+        height: 35px;
+        width:90px;
+        border: 0px solid;
+        color: white;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+}
+
+
+@media screen and (width<=370px) and (width>=355px){
+    .signup-todo-container{
+        background: rgb(197, 219, 252);
+        height: 680px;;
+        padding: 5px 5px 5px 5px;
+    }
+    .signup-todo-form{
+        position: relative;
+        margin-top: 0px;
+        width:310px;
+    }
+    .signup-todo-input{
+        width:65vw;
+        padding: 3px;
+        margin-top: -10px;
+        border: 1px solid rgba(185, 182, 182, 0.959);
+    }
+    .signup-todo-buttons{
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+     }
+     .signup-todo-btn{
+        height: 35px;
+        width:90px;
+        border: 0px solid;
+        color: white;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (width<=420px) and (width>=400px) {
+    .signup-todo-form{
+        position: relative;
+        margin-top: 0px;
+        width:375px;
+    }
+    .signup-todo-container{
+        background: rgb(197, 219, 252);
+        height:700px;
+        padding: 5px 5px 5px 5px;
+    }
+}

@@ -1,0 +1,148 @@
+{
+  "a": [
+    {
+      "Firstname": "Vamshi",
+      "Lastname": "Bandari",
+      "Email": "vamshi",
+      "Password": "vamshi",
+      "id": 1
+    },
+    {
+      "Firstname": "admin",
+      "Lastname": "admin",
+      "Email": "admin",
+      "Password": "admin",
+      "id": 2
+    },
+    {
+      "Firstname": "admin",
+      "Lastname": "admin",
+      "Email": "admin",
+      "Password": "admin",
+      "id": 3
+    },
+    {
+      "Firstname": "ad",
+      "Lastname": "ad",
+      "Email": "ad",
+      "Password": "ad",
+      "id": 4
+    },
+    {
+      "Firstname": "ad",
+      "Lastname": "ad",
+      "Email": "ad",
+      "Password": "ad",
+      "id": 5
+    },
+    {
+      "Firstname": "a",
+      "Lastname": "a",
+      "Email": "a",
+      "Password": "a",
+      "id": 6
+    },
+    {
+      "Firstname": "b",
+      "Lastname": "b",
+      "Email": "b",
+      "Password": "b",
+      "id": 7
+    },
+    {
+      "Firstname": "v",
+      "Lastname": "v",
+      "Email": "v",
+      "Password": "v",
+      "id": 8
+    },
+    {
+      "Firstname": "q",
+      "Lastname": "q",
+      "Email": "q",
+      "Password": "q",
+      "id": 9
+    },
+    {
+      "Firstname": "f",
+      "Lastname": "f",
+      "Email": "f",
+      "Password": "f",
+      "id": 10
+    },
+    {
+      "Firstname": "f",
+      "Lastname": "f",
+      "Email": "f",
+      "Password": "f",
+      "id": 11
+    },
+    {
+      "Firstname": "f",
+      "Lastname": "f",
+      "Email": "f",
+      "Password": "f",
+      "id": 12
+    },
+    {
+      "Firstname": "vg",
+      "Lastname": "g",
+      "Email": "g",
+      "Password": "g",
+      "id": 13
+    },
+    {
+      "Firstname": "g",
+      "Lastname": "g",
+      "Email": "g",
+      "Password": "g",
+      "id": 14
+    },
+    {
+      "Firstname": "h",
+      "Lastname": "h",
+      "Email": "h",
+      "Password": "h",
+      "id": 15
+    },
+    {
+      "Firstname": "j",
+      "Lastname": "j",
+      "Email": "j",
+      "Password": "j",
+      "id": 16
+    },
+    {
+      "Firstname": "g",
+      "Lastname": "g",
+      "Email": "g",
+      "Password": "g",
+      "id": 17
+    },
+    {
+      "Firstname": "v",
+      "Lastname": "v",
+      "Email": "v",
+      "Password": "v",
+      "id": 18
+    }
+  ],
+  "product": [
+    {
+      "title": "Mens Casual Premium Slim Fit T-Shirts ",
+      "price": 22.3,
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "cartvalue": 1,
+      "id": 1
+    },
+    {
+      "title": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+      "price": 9.85,
+      "category": "women's clothing",
+      "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+      "cartvalue": 1,
+      "id": 2
+    }
+  ]
+}

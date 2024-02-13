@@ -1,0 +1,263 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Times New Roman', Times, serif;
+  overflow-y: hidden;
+}
+
+.sidebar-container {
+  position: fixed;
+  height: 100vh;
+  width: 20%;
+  background-color: white;
+  float: inline-start;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  border: 1px solid rgb(221, 221, 221);
+  left: 0px;
+  top: 0px;
+  transition: 0.4s;
+}
+
+.sidebar-collapse {
+  left: -30%;
+}
+
+.sidebar-items:hover {
+  overflow-y: auto;
+}
+
+.sidebar-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-items h4 {
+  margin: 10px 0px 10px 10px;
+  color: gray;
+  font-size: 13px;
+
+}
+
+.sideitems-typo {
+  /* border: 1px solid black;  */
+  padding: 15px;
+  font-size: 14;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.sideitems-typo:hover {
+  background: rgb(232, 244, 253);
+  color: rgb(90, 166, 253);
+}
+
+.navbar-main {
+  background-color: white !important;
+  width: calc(100% - 20%) !important;
+  position: fixed;
+  float: inline-end;
+  color: black !important;
+  border: 1px solid rgb(221, 221, 221);
+  transition: 0.5s !important;
+}
+
+.navbar-collapse {
+  width: 100% !important;
+}
+
+.navbar-input {
+  border: 1px solid rgb(185, 182, 182);
+  height: 35px;
+  margin-left: 10px;
+  width: 230px;
+  border-radius: 5px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+  align-items: center;
+}
+
+.navbar-input:hover {
+  border: 1px solid rgb(93, 180, 252);
+}
+
+.body-main {
+  background: rgb(245, 244, 244);
+  /* background: red; */
+  height: 100vh;
+  width: calc(100% - 20%);
+  float: inline-end;
+  transition: 0.5s;
+  overflow-y: auto;
+}
+
+.body-collapse {
+  width: 100%;
+}
+
+.dashboard-main {
+  padding: 25px;
+  width: fit-content;
+  margin-bottom: 100px;
+  /* background-color: aqua; */
+}
+
+.dashboard-analytics-cards {
+  border: 1px solid rgb(185, 182, 182);
+  border-radius: 5px;
+  width: 23%;
+  background: white;
+  display: flex;
+}
+
+
+.dashboard-analytics-container {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.dashboard-analytics-typo {
+  font-size: 13px !important;
+}
+
+.graph-container {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.line-graph {
+  border: 1px solid rgb(185, 182, 182);
+  border-radius: 5px;
+  background: white;
+  margin-top: 25px;
+  width: 45vw;
+  /* width: 49%; */
+  height: 70vh;
+}
+
+.bar-graph {
+  border: 1px solid rgb(185, 182, 182);
+  border-radius: 5px;
+  background: white;
+  margin-top: 25px;
+  width: 28vw;
+  height: 70vh;
+}
+
+.line-graph-collapse {
+  width: 55vw !important;
+}
+
+.bar-graph-collapse {
+  width: 35vw !important;
+
+}
+
+.avatar-container {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.avatar-container:hover {
+  background: rgb(241, 240, 240);
+}
+
+.table-container {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.order-table {
+  background: white;
+  margin-top: 25px;
+  width: 45vw;
+  height: 70vh;
+}
+
+.analytics-report {
+
+  background: white;
+  margin-top: 25px;
+  width: 28vw;
+  height: 70vh;
+}
+
+.order-table-collapse {
+  width: 55vw !important;
+}
+
+.analytics-report-collapse {
+  width: 35vw !important;
+}
+
+.typography-main {
+  padding: 25px;
+  margin-bottom: 100px;
+  /* background-color: blue;  */
+}
+
+.typo-card-container {
+  margin-top: 25px;
+}
+
+.typo-card-box {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.typoCom-cards {
+  width: 49%;
+  background: white;
+  border-radius: 5px;
+}
+
+.color-container {
+  margin-top: 25px;
+}
+.color-card-box{
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.color-cards {
+  width: 32%;
+  background: white;
+  height: 100lvh;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.shadow-card-container {
+  margin-top: 25px;
+}
+.shadow-card-box{
+  margin-top: 25px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid rgb(207, 207, 207);
+}

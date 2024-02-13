@@ -1,0 +1,23 @@
+.pdf-viewer-main-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.pdf-title-container{
+    background: black;
+}
+
+
+
+
+
+ /* @media screen and (width>=0px) and (width<=321px){
+
+    .pdf-viewer-main-container{
+        width: 80vw;
+        display: flex;
+        justify-content: left;
+        
+    }
+    
+} */

@@ -1,0 +1,685 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Poppins;
+}
+
+.sign-in-main {
+  overflow: hidden;
+}
+
+/* login page logos */
+.login2-logo {
+  height: auto;
+  width: 100vw;
+}
+
+.logo {
+  height: 54.36px;
+  width: 178px;
+}
+
+/* input field signin */
+.input-field-signin {
+  margin-top: -2px !important;
+}
+
+.input-field-labels {
+  font-size: 14px;
+}
+
+.login3-logo {
+  position: absolute;
+  width: 400px;
+  height: 256px;
+  top: 25px;
+  left: 25px;
+}
+
+.login-para {
+  position: absolute;
+  top: 48%;
+  left: 55px;
+  font-size: 14px;
+}
+
+.login1-logo {
+  position: absolute;
+  /* Width: 350px; */
+  Height: 300px;
+  bottom: 0%;
+  left: calc(100% - 475px);
+  /* content-visibility: hidden; */
+}
+
+.signin-typo {
+  margin-top: 35px !important;
+  font-size: 40px !important;
+}
+
+.help-typo {
+  font-size: 16px !important;
+}
+
+.fund-pay-typo {
+  font-size: 12px !important;
+  margin-top: -5px !important;
+  margin-top: 10px !important;
+}
+
+.forgot-pwd-typo {
+  float: right;
+  margin-top: 10px !important;
+  background: none !important;
+  /* border: 0px solid black !important; */
+  cursor: pointer;
+}
+
+.login-btn {
+  height: 64px !important;
+  background: rgba(207, 167, 103, 1) !important;
+  font-weight: bold !important;
+  font-size: 20px !important;
+  margin-top: 5px !important;
+}
+
+.dont-ac {
+  text-align: center !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: "center" !important;
+  -ms-flex-pack: "center" !important;
+  justify-content: "center" !important;
+  padding-top: 20px !important;
+  align-items: center !important;
+  padding-bottom: 25px !important;
+}
+
+.register-typo {
+  font-size: 14px !important;
+}
+
+.copyright-typo {
+  font-size: 11px !important;
+  text-align: center;
+}
+
+/* cover page */
+.cover-main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+}
+
+.cover-logo {
+  width: 470.39px;
+  height: 137px;
+}
+
+.cover-page-typo {
+  font-size: 14px;
+  text-align: center;
+}
+
+/* cover page 2 */
+.cover-main2 {
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-typo {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-field-signin {
+  border: 1px solid rgb(243, 189, 103) !important;
+  border-radius: 5px !important;
+}
+
+
+
+/* for mobile phones */
+
+
+
+@media screen and (width<=385px) and (width>=370px) {
+  .sign-in-main {
+    overflow: unset;
+  }
+
+  .signin-box {
+    margin-top: 100px !important;
+  }
+
+  .login-para {
+    position: absolute;
+    top: 35%;
+    left: 25px;
+  }
+
+  .login3-logo {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .login1-logo {
+    content-visibility: hidden;
+  }
+
+  .login2-logo {
+    /* height: 60vh; */
+    width: 100vw;
+  }
+
+  .logo {
+    height: 50px;
+    width: 170px;
+    margin-top: -15px;
+  }
+
+  .signin-typo {
+    margin-top: 30px !important;
+    font-size: 25px !important;
+  }
+
+  .help-typo {
+    font-size: 14px !important;
+  }
+
+  .forgot-pwd-typo {
+    float: right;
+    margin-top: 10px !important;
+  }
+
+  .dont-ac {
+    text-align: center !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: "center" !important;
+    -ms-flex-pack: "center" !important;
+    justify-content: "center" !important;
+    padding-top: 20px !important;
+    padding-bottom: 25px !important;
+    font-size: 13px !important;
+  }
+
+  .register-typo {
+    font-size: 13px !important;
+  }
+
+  /* cover page */
+  .cover-logo {
+    width: 300.39px;
+    height: 77px;
+  }
+
+  .cover-page-typo {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+@media screen and (width<=365px) and (width>=300px) {
+  .sign-in-main {
+    overflow: unset;
+  }
+
+  .signin-box {
+    margin-top: 100px !important;
+  }
+
+  .login-para {
+    position: absolute;
+    top: 30%;
+    left: 25px;
+  }
+
+  .login3-logo {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .login1-logo {
+    content-visibility: hidden;
+  }
+
+  .login2-logo {
+    /* height: 55vh; */
+    width: 100vw;
+  }
+
+  .logo {
+    height: 48px;
+    width: 170px;
+    margin-top: -15px;
+  }
+
+  .signin-typo {
+    margin-top: 30px !important;
+    font-size: 25px !important;
+  }
+
+  .help-typo {
+    font-size: 14px !important;
+  }
+
+  .forgot-pwd-typo {
+    float: right;
+    margin-top: 10px !important;
+  }
+
+  /* cover page */
+  .cover-logo {
+    width: 300.39px;
+    height: 77px;
+  }
+
+  .cover-page-typo {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+@media screen and (width<=325px) and (width>=200px) {
+  .sign-in-main {
+    overflow: unset;
+  }
+
+  .signin-box {
+    margin-top: 50px !important;
+  }
+
+  .login-para {
+    position: absolute;
+    top: 30%;
+    left: 25px;
+  }
+
+  .login3-logo {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .login1-logo {
+    content-visibility: hidden;
+  }
+
+  .login2-logo {
+    height: auto;
+    width: 100vw;
+  }
+
+  .logo {
+    height: 50px;
+    width: 170px;
+    margin-top: -15px;
+  }
+
+  .signin-typo {
+    margin-top: 30px !important;
+  }
+  
+  #reset-pwd-typo {
+    font-size: 18px !important;
+  }
+
+  .help-typo {
+    font-size: 10px !important;
+  }
+
+  .remember-me-typo {
+    font-size: 10px !important;
+  }
+
+  .forgot-pwd-typo {
+    font-size: 10px !important;
+    float: right;
+    margin-top: 10px !important;
+  }
+
+  .dont-ac {
+    text-align: center !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: "center" !important;
+    -ms-flex-pack: "center" !important;
+    justify-content: "center" !important;
+    padding-top: 20px !important;
+    padding-bottom: 25px !important;
+    font-size: 13px !important;
+  }
+
+  .register-typo {
+    font-size: 13px !important;
+  }
+
+  /* cover page */
+  .cover-logo {
+    width: 300.39px;
+    height: 77px;
+  }
+
+  .cover-page-typo {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+@media screen and (width<=435px) and (width>=390px) {
+  .sign-in-main {
+    overflow: unset;
+  }
+
+  .signin-box {
+    margin-top: 100px !important;
+  }
+
+  .login-para {
+    position: absolute;
+    top: 29%;
+    left: 25px;
+  }
+
+  .login3-logo {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .login1-logo {
+    content-visibility: hidden;
+  }
+
+  .login2-logo {
+    /* height: 50vh; */
+    width: 100vw;
+  }
+
+  .logo {
+    height: 48px;
+    width: 170px;
+    margin-top: -15px;
+  }
+
+  .signin-typo {
+    margin-top: 30px !important;
+    font-size: 25px !important;
+  }
+
+  .help-typo {
+    font-size: 14px !important;
+  }
+
+  .forgot-pwd-typo {
+    float: right;
+    margin-top: 10px !important;
+  }
+
+  /* cover page */
+  .cover-logo {
+    width: 320.39px;
+    height: 97px;
+  }
+
+  .cover-page-typo {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+@media screen and (width<=485px) and (width>=440px) {
+  .sign-in-main {
+    overflow: unset;
+  }
+
+  .signin-box {
+    margin-top: 100px !important;
+  }
+
+  .login-para {
+    position: absolute;
+    top: 29%;
+    left: 25px;
+  }
+
+  .login3-logo {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .login1-logo {
+    content-visibility: hidden;
+  }
+
+  .login2-logo {
+    /* height: 50vh; */
+    width: 100vw;
+  }
+
+  .logo {
+    height: 48px;
+    width: 170px;
+    margin-top: -15px;
+  }
+
+  .signin-typo {
+    margin-top: 30px !important;
+    font-size: 25px !important;
+  }
+
+  .help-typo {
+    font-size: 14px !important;
+  }
+
+  .forgot-pwd-typo {
+    float: right;
+    margin-top: 10px !important;
+  }
+
+  /* cover page */
+  .cover-logo {
+    width: 320.39px;
+    height: 97px;
+  }
+
+  .cover-page-typo {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+/* for tabs and medium screens */
+@media screen and (width<=780px) and (width>=500px) {
+  .login-para {
+    position: absolute;
+    top: 28%;
+    left: 0px;
+    width: 250px;
+  }
+
+  .signin-box {
+    margin-top: 100px !important;
+  }
+
+  .login1-logo {
+    position: absolute;
+    Width: 250px;
+    Height: 250px;
+    bottom: 0%;
+    left: 0%;
+    /* content-visibility: hidden; */
+  }
+
+  .login3-logo {
+    position: absolute;
+    width: 250px;
+    height: 180px;
+    top: 40px;
+    left: 0px;
+  }
+
+  .login2-logo {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .logo {
+    height: 48px;
+    width: 170px;
+    margin-top: -15px;
+  }
+
+  .signin-typo {
+    margin-top: 30px !important;
+    font-size: 25px !important;
+  }
+
+  .help-typo {
+    font-size: 14px !important;
+  }
+
+  .forgot-pwd-typo {
+    margin-left: 150px !important;
+  }
+}
+
+@media screen and (width<=850px) and (width>=800px) {
+  .login-para {
+    position: absolute;
+    top: 25%;
+    left: 0px;
+    width: 250px;
+  }
+
+  .signin-box {
+    margin-top: 100px !important;
+  }
+
+  .login1-logo {
+    position: absolute;
+    Width: 270px;
+    Height: 250px;
+    bottom: 0%;
+    left: 0%;
+    /* content-visibility: hidden; */
+  }
+
+  .login3-logo {
+    position: absolute;
+    width: 270px;
+    height: 190px;
+    top: 40px;
+    left: 0px;
+  }
+
+  .login2-logo {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .logo {
+    height: 48px;
+    width: 170px;
+    margin-top: -15px;
+  }
+
+  .signin-typo {
+    margin-top: 30px !important;
+    font-size: 25px !important;
+  }
+
+  .help-typo {
+    font-size: 14px !important;
+  }
+
+  .forgot-pwd-typo {
+    margin-left: 200px !important;
+  }
+}
+
+@media screen and (width<=1028px) and (width>=1000px) {
+  .login-para {
+    position: absolute;
+    top: 25%;
+    left: 80px;
+    width: 250px;
+  }
+
+  .signin-box {
+    margin-top: 100px !important;
+  }
+
+  .login1-logo {
+    position: absolute;
+    Width: 450px;
+    Height: 400px;
+    bottom: 0%;
+    left: 10%;
+    /* content-visibility: hidden; */
+  }
+
+  .login3-logo {
+    position: absolute;
+    width: 400px;
+    height: 256px;
+    top: 40px;
+    left: 40px;
+  }
+
+  .login2-logo {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .logo {
+    height: 48px;
+    width: 170px;
+    margin-top: -15px;
+  }
+
+  .signin-typo {
+    margin-top: 30px !important;
+    font-size: 25px !important;
+  }
+
+  .help-typo {
+    font-size: 14px !important;
+  }
+
+  .forgot-pwd-typo {
+    margin-left: 80px !important;
+  }
+}

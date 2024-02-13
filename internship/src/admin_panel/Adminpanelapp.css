@@ -1,0 +1,348 @@
+.admin-panel-main{
+    margin: 0px;
+    padding: 0px;
+    /* margin-bottom: 10px; */
+}
+.side-bar{
+    background:rgb(17, 17, 17);
+    width:56px;  
+    /* width:240px;  */
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 30px;
+    padding-left: 30px;
+    transition: .5s;
+    position: fixed;
+    /* justify-content: left; */
+}
+
+.icons {
+    color: rgb(247);
+    content-visibility: visible;
+}
+.headings{
+    color: rgb(247, 247, 247);
+    cursor: pointer;
+    /* it hides content as well as removes its space too  */
+    content-visibility:hidden;
+}
+
+.icons-head{
+    display: flex;
+    gap: 30px;
+}
+.teamwork-logo{
+    width: 0px;
+    height: 0px;
+    /* width: 50px;
+    height: 50px; */
+    transition: 0.5s;
+}
+.logo{
+    margin:20px 0px 10px 0px    
+}
+.navbar-container{
+    /* background:black; */
+    /* height:70px; */
+    position:fixed;
+    left: 85px;
+    top: 0px;
+    transition: .5s;
+    /* space between "-" is important else "calc()" will not work */
+    width: calc(100% - 85px);
+}
+.navbar-main{
+    width: calc(100% - 85px);
+    margin-left: 86px;
+    padding-top: 66px;
+    transition: .5s;
+    /* position: fixed; */
+}
+.menu-btn{
+    height:auto;
+    width:auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#profile-btn{
+    cursor: pointer;
+    transition: 0.2s;
+}
+.menu-btn:hover{
+    transform:scale(1.2)
+
+}
+.side-bar-show{
+    width:240px; 
+}
+.navbar-container-collapse{
+    width:calc(100% - 269px) ;
+    left: 269px;
+}
+.navbar-main-collapse{
+    width:calc(100% - 270px) ;
+    margin-left: 270px;
+}
+.teamwork-logo-show{
+    height: 50px;
+    width: 50px;
+}
+.headings-show{
+    content-visibility:visible;
+}
+.user-details-form-container{
+    padding:50px 0px 0px 550px;
+}
+.user-details-form{
+    border: 1px solid black;
+    width:fit-content;
+    height:auto;
+    padding: 30px;
+}
+.profile-form{
+    padding: 10px;
+}
+.inner-form{
+    padding: 10px;
+}
+.form-input-field{
+    height: 35px;
+    width: 350px;
+    margin-top: 10px;
+}
+
+
+
+
+@media (max-width:376px){
+    .side-bar{
+        background:rgb(17, 17, 17);
+        width:0px;  
+        /* width:240px;  */
+        height:100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 30px;
+        padding-left: 10px;
+        transition: .5s;
+        position: fixed;
+        left:-10px;
+        /* justify-content: left; */
+    }
+    .side-bar-show{
+        height: 100vh;
+        width:140px; 
+    }
+    .headings-show{
+        font-size: 13px;
+        margin-left: -15px;
+        content-visibility:visible;
+    }
+    .navbar-container{
+        /* background:black; */
+        /* height:70px; */
+        position:fixed;
+        /* space between "-" is important else "calc()" will not work */
+        width:100vw;
+        left: 0px;
+        top: 0px;
+        transition: .5s;
+    }
+    .navbar-main{
+        width: 100%;
+        padding-top: 66px;
+        transition: .5s;
+        /* position: fixed; */
+    }
+    .navbar-container-collapse{
+        width:calc(100% - 10px) ;
+        left: 140px;
+    }
+    .navbar-main-collapse{
+        width:calc(100% - 11px) ;
+        margin-left: 141px;
+    }
+    .teamwork-logo-show{
+        height: 30px;
+        width: 30px;
+        padding-left: 35px;
+    }
+    .icons-head{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 30px;
+    }
+    .icons{
+        content-visibility: hidden;
+    }
+    .icons-show{
+        color:  rgb(247, 247, 247);
+        font-size: 15px !important;
+        padding-left: 10px;
+        content-visibility:visible;
+    }
+}
+
+
+
+
+
+
+
+@media (max-width:321px){
+    .side-bar{
+        background:rgb(17, 17, 17);
+        width:0px;  
+        /* width:240px;  */
+        height:100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 30px;
+        padding-left: 10px;
+        transition: .5s;
+        position: fixed;
+        left:-10px;
+        /* justify-content: left; */
+    }
+    .side-bar-show{
+        width:140px; 
+    }
+    .headings-show{
+        font-size: 13px;
+        margin-left: -15px;
+        content-visibility:visible;
+    }
+    .navbar-container{
+        /* background:black; */
+        /* height:70px; */
+        position:fixed;
+        /* space between "-" is important else "calc()" will not work */
+        width:100vw;
+        left: 0px;
+        top: 0px;
+        transition: .5s;
+    }
+    .navbar-main{
+        width: 100%;
+        padding-top: 66px;
+        transition: .5s;
+        /* position: fixed; */
+    }
+    .navbar-container-collapse{
+        width:calc(100% - 10px) ;
+        left: 140px;
+    }
+    .navbar-main-collapse{
+        width:calc(100% - 11px) ;
+        margin-left: 141px;
+    }
+    .teamwork-logo-show{
+        height: 30px;
+        width: 30px;
+        padding-left: 35px;
+    }
+    .icons-head{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 30px;
+    }
+    .icons{
+        content-visibility: hidden;
+    }
+    .icons-show{
+        color:  rgb(247, 247, 247);
+        font-size: 15px !important;
+        padding-left: 10px;
+        content-visibility:visible;
+    }
+}
+
+
+
+
+
+@media (max-width:426px){
+    .side-bar{
+        background:rgb(17, 17, 17);
+        width:0px;  
+        /* width:240px;  */
+        height:100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 30px;
+        padding-left: 10px;
+        transition: .5s;
+        position: fixed;
+        left:-10px;
+        /* justify-content: left; */
+    }
+    .side-bar-show{
+        width:140px; 
+    }
+    .headings-show{
+        font-size: 13px;
+        margin-left: -15px;
+        content-visibility:visible;
+    }
+    .navbar-container{
+        /* background:black; */
+        /* height:70px; */
+        position:fixed;
+        /* space between "-" is important else "calc()" will not work */
+        width:100%;
+        left: 0px;
+        top: 0px;
+        transition: .5s;
+    }
+    .navbar-main{
+        width: 100%;
+        padding-top: 66px;
+        transition: .5s;
+        /* position: fixed; */
+    }
+    .navbar-container-collapse{
+        width:calc(100% - 140px) ;
+        left: 140px;
+    }
+    .navbar-main-collapse{
+        width:calc(100% - 11px) ;
+        margin-left: 141px;
+    }
+    .teamwork-logo-show{
+        height: 30px;
+        width: 30px;
+        padding-left: 35px;
+    }
+    .icons-head{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 30px;
+    }
+    .icons{
+        content-visibility: hidden;
+    }
+    .icons-show{
+        color:  rgb(247, 247, 247);
+        /* "!important" is keyword used when we want to apply and property compulsary */
+        font-size: 15px !important;
+        padding-left: 10px;
+        content-visibility:visible;
+    }
+}
+
+
+
+
+
+
+

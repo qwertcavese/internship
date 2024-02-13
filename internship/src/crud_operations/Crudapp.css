@@ -1,0 +1,62 @@
+
+.crudmain h1{
+    text-align: center;
+}
+#filled-basic{
+    background-color: white;
+}
+.crudmain{
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(67, 209, 228);
+}
+.crudmain .name{
+    /* background-color: aliceblue; */
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0px;
+    margin: 40px 0px 0px 0px;
+}
+.crudmain .password{
+    /* background-color: aliceblue; */
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0px;
+    margin: 30px 0px 0px 0px;
+}
+.crudmain input{
+    width: 100%;
+    border-radius: 7px;
+    height: 40px;
+    border: 0px solid black;
+    /* it will set some space inside cursor of input field   */
+    padding-left: 10px; 
+}
+#submitbtn{
+    background-color: orange;
+    height: 35px;
+    width: 70px;
+    border-radius: 10px;
+    border: 0px solid black;
+    cursor: pointer;
+    text-align: center;
+    transition: .5s;
+}
+#submitbtn:hover{
+    transform: translate(-2px ,-5px);
+    filter: drop-shadow(5px 5px 7px black);
+}
+.crudmain:nth-child(4){
+    margin-top: 20px;
+    margin-left: -75%;
+    transition: 0.5s;
+}
+.tablecontainer{
+    margin: 50px 0px 30px 0px;
+    width: 80%;
+    /* border: 10px solid black; */
+}
