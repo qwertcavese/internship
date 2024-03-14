@@ -122,7 +122,7 @@ export default function PackSize() {
                                 >Add Pack</Button>
                             </div><hr />
 
-                            <TableContainer component={Paper} style={{ marginTop: "10px" }}>
+                            <TableContainer component={Paper} style={{ marginTop: "10px"}}>
                                 <Table sx={{ minWidth: 300 }} aria-label="customized table">
                                     <TableHead>
                                         <TableRow>

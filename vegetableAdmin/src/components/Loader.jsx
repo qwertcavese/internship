@@ -8,7 +8,7 @@ export default function Loader() {
     <>
     <ResponsiveAppBar/>
     <Box className="loader">
-      <CircularProgress />
+      <CircularProgress disableShrink/>
     </Box>
     </>
   );

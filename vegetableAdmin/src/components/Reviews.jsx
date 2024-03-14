@@ -9,7 +9,7 @@ const style = {
     // justifyContent: "center",
     borderRadius: "5px",
     padding: "15px",
-    marginBottom: "15px",
+    marginBottom: "85px",
     height: "250px",
     overflowY: "auto",
     width:"60%"

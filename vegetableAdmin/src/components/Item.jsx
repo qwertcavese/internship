@@ -89,7 +89,7 @@ export default function Item() {
 
 
 
-    if (sessionStorage.getItem("adminId")&&loader==false) {
+    if (sessionStorage.getItem("adminId") && loader == false) {
 
         return (
             <>
@@ -106,7 +106,10 @@ export default function Item() {
                 </Button >
 
                 <div className='body-main' style={{ overflowY: "hidden" }}>
-                    <div className='items-main' style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "center" }}>
+                    <div className='items-main' style={{
+                        display: "flex", flexWrap: "wrap",
+                        justifyContent:"space-around"
+                    }}>
                         {items.map((val, index) => {
                             var unit = ""
                             if (val.quantity < 1) {
@@ -118,7 +121,8 @@ export default function Item() {
                             }
                             return (
 
-                                <Card style={{ width: "230px", margin: "15px" }} key={index}>
+                                <Card style={{ width: "240px",margin:"15px 10px 80px 10px"}} key={index}>
+
                                     <CardMedia
                                         component="img"
                                         alt="green iguana"
@@ -153,7 +157,7 @@ export default function Item() {
                                         </select>
                                     </CardContent>
                                     <hr />
-                                    
+
                                     <CardActions>
                                         <Button size="small" id={val.id} onClick={async (e) => {
                                             setName({ ...name, title: "Update Item", placeholder: "Update Item Name", placeholderDesc: "Update Description", placeholderQuantity: "Update Quantity", placeholderImg: "Update Image", btn: "save changes", displayField: "visible", btnId: "updt" })
@@ -309,7 +313,7 @@ export default function Item() {
             </>
         )
     }
-    else if(loader==true) return <Loader/>
+    else if (loader == true) return <Loader />
     else {
         window.location.pathname = "/"
         return <SignIn />
