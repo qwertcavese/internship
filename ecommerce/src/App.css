@@ -1,0 +1,113 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Times New Roman', Times, serif;
+  overflow-y: hidden;
+}
+
+.sidebar-container {
+  position: fixed;
+  height: 100vh;
+  width: 20%;
+  background-color: white;
+  float: inline-start;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  border: 1px solid rgb(221, 221, 221);
+  left: 0px;
+  top: 0px;
+  transition: 0.4s;
+}
+
+.sidebar-collapse {
+  transition: 0.4s; 
+  left: -30%;
+}
+
+.sidebar-items:hover {
+  overflow-y: auto;
+}
+
+.sidebar-items {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sideitems-typo {
+  /* border: 1px solid black;  */
+  padding: 15px;
+  font-size: 14;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.sideitems-typo:hover {
+  background: rgb(232, 244, 253);
+  color: rgb(90, 166, 253);
+}
+
+.navbar-main {
+  background-color: white !important;
+  width: calc(100% - 20%) !important;
+  position: fixed;
+  float: inline-end;
+  color: black !important;
+  border: 1px solid rgb(221, 221, 221);
+  transition: 0.4s !important;
+}
+
+.navbar-collapse {
+  transition: 0.4s !important;
+  width: 100% !important;
+}
+
+.navbar-input {
+  border: 1px solid rgb(185, 182, 182);
+  height: 35px;
+  margin-left: 10px;
+  width: 230px;
+  border-radius: 5px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+  align-items: center;
+}
+
+.navbar-input:hover {
+  border: 1px solid rgb(93, 180, 252);
+}
+.search-btn{
+  height: 35px;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid rgb(185, 182, 182);
+  transition: 0.3s;
+}
+
+.search-btn:hover{
+  border: 1px solid rgb(93, 180, 252);
+  background:rgb(148, 197, 236) ;
+  color: rgb(55, 0, 255);
+}
+
+.body-main {
+  background: rgb(245, 244, 244);
+  /* background: red; */
+  height: 100vh;
+  width: calc(100% - 20%);
+  float: inline-end;
+  transition: 0.4s;
+  overflow-y: auto;
+}
+
+.body-collapse {
+  width: 100%;
+}

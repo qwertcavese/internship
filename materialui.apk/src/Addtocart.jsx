@@ -41,7 +41,7 @@ function Addtocart() {
     setCart(updatedCart);
     updateSubtotal(updatedCart);
   };
-  log
+  
 
   const updateSubtotal = (updatedCart) => {
     const total = updatedCart.reduce((acc, item) => acc + item.cartvalue * item.price,0);
