@@ -26,7 +26,6 @@
     margin-top: 70px;
     width: 100vw;
     position: fixed;
-    /* background-color: aqua; */
 }
 .category-main{
     display:flex;
@@ -79,7 +78,6 @@
     overflow-y: auto;
     height: calc(100vh - 130px);
     margin-top: 60px;
-    /* background-color:rgb(13, 129, 13); */
     background-color:rgb(218, 217, 217);
 }
 .loader{
@@ -95,7 +93,7 @@
 @media screen and (width>495px){
     .snackbar{
         position: absolute !important;
-        top: 10% !important;
+        top: 75px !important;
         left: 50% !important;
         transform: translate(-50% , -50%) !important;
     }

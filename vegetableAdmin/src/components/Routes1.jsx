@@ -18,7 +18,6 @@ export default function Routes1() {
         <Route path='/category' element={<Category/>}/>
         <Route path='/item' element={<Item/>}/>
         <Route path='/packsize' element={<PackSize/>}/>
-        {/* <Route path='/s' element={<WrapperSnackbar/>}/> */}
       </Routes>
     </div>
   )

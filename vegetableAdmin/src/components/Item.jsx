@@ -254,9 +254,9 @@ export default function Item() {
                             </div>
                             <div>
 
-                                <TextField id="filled-basic" label={name.placeholderQuantity} variant="filled" className='item-inpt' type='number' onChange={(e) => {
+                                <TextField id="filled-basic" label={name.placeholderQuantity} variant="filled" className='item-inpt' type='number'  onChange={(e) => {
                                     setData({ ...data, updtQuantity: e.target.value })
-                                }} />
+                                }} min="0"/>
                             </div>
                             <div>
 
