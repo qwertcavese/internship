@@ -1,13 +1,15 @@
 * {
     overflow-y: hidden;
 }
-
 ::-webkit-scrollbar {
     width: 8px;
 }
-
+/* :root{
+    --a:red;
+} */
 ::-webkit-scrollbar-thumb {
     background-color: rgb(57, 133, 247);
+    /* background-color: var(--a); */
     border-radius: 10px;
 }
 ::-webkit-scrollbar-track{
@@ -88,4 +90,13 @@
     display: grid;
     place-items: center;
     position: fixed;
+}
+
+@media screen and (width>495px){
+    .snackbar{
+        position: absolute !important;
+        top: 10% !important;
+        left: 50% !important;
+        transform: translate(-50% , -50%) !important;
+    }
 }

@@ -4,8 +4,6 @@ import SignIn from './SignIn'
 import ShowDialog from './ShowDialog'
 import Home from './Home'
 import Category from './Category'
-import BasicModal from './Modal'
-import WrapperSnackbar from './WrapperSnackbar'
 import Item from './Item'
 import PackSize from './PackSize'
 
@@ -20,7 +18,7 @@ export default function Routes1() {
         <Route path='/category' element={<Category/>}/>
         <Route path='/item' element={<Item/>}/>
         <Route path='/packsize' element={<PackSize/>}/>
-        <Route path='/s' element={<WrapperSnackbar/>}/>
+        {/* <Route path='/s' element={<WrapperSnackbar/>}/> */}
       </Routes>
     </div>
   )

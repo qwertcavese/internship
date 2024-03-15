@@ -1,7 +1,6 @@
 import axios from "axios"
 import FormData from 'form-data';
-import * as fs from 'fs';
-import Loader from "./Loader";
+
 
 const url = `http://192.168.29.183:8001`
 
@@ -220,9 +219,9 @@ export async function updateItem(props) {
     form.append('image_path', props.updtImg);
 
     try {
-        await axios.put(`${url2}${queryParams}`, form, config);
+       const response= await axios.put(`${url2}${queryParams}`, form, config);
         // Handle success (you may want to redirect or show a success message)
-        console.log('Item updated successfully');
+        return response.data
     } catch (error) {
         // Handle error (you may want to show an error message)
         console.error('Error updating item', error);
@@ -246,7 +245,7 @@ export async function createItem(props) {
             },
         });
 
-        console.log(response.data);
+        return response.data
     } catch (error) {
         console.error(error);
     }
@@ -260,8 +259,7 @@ export async function getAllOrderDetails() {
             }
         })
         // console.log(response);
-        return response.data.orders
-        // return <Loader/>
+        return response.data
     } catch (error) {
         console.log(error);
     }

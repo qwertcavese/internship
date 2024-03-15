@@ -25,6 +25,10 @@ export default function Reviews() {
         fetchData();
     }, [])
     // console.log(reviews);
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(dateString).toLocaleDateString('en-IN', options);
+    };
     return (
         <div style={{
             display: "flex",
@@ -42,7 +46,7 @@ export default function Reviews() {
                             <div key={index} style={{ display: "flex", flexDirection: "column", gap: "02px", padding: "10px" }}>
                                 <h4>{val.user_name}:-</h4>
                                 <p>{val.text}</p>
-                                <p>{val.time_stamp}</p>
+                                <p>{formatDate(val.time_stamp)}</p>
                                 <hr />
                             </div>
                         );

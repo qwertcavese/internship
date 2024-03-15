@@ -15,8 +15,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { getAllCategories } from './ApiServices';
-import WrapperSnackbar from './WrapperSnackbar';
 import Loader from './Loader';
+import Snackbar1 from './Snackbar';
 
 
 const style = {
@@ -58,10 +58,6 @@ export default function PackSize() {
     const [open, setOpen] = React.useState(false);
     const handleClose = () => setOpen(false);
     const [category, setCategory] = React.useState("")
-    const [categoryMessage, setCategoryMessage] = React.useState({
-        state: false,
-        message: "",
-    })
     const [packSize, setPackSize] = React.useState([])
     var count = 0;
     const [state, setState] = React.useState(true)
@@ -100,13 +96,25 @@ export default function PackSize() {
         fetchData();
         setState(true)
     }, [state])
+
+
+    const[z,setz]=React.useState({
+        open1:false,
+        msg:"",
+        type:"",
+    })
+    function closeSnackBar() {
+        setTimeout(() => {
+            setz({ ...z, open: false })
+        }, 1500)
+    }
     if (sessionStorage.getItem("adminId") && loader == false) {
 
         return (
             <>
             <ResponsiveAppBar />
 
-            <WrapperSnackbar data={categoryMessage}>
+            {/* <WrapperSnackbar data={categoryMessage}> */}
 
                 <div className='body-main'>
                     <div className='pack-size-main'>
@@ -162,8 +170,10 @@ export default function PackSize() {
                                                         </button>
                                                         <button className='dc-btn' id={val.pack_size_id} onClick={async (e) => {
                                                             var deletePackSizeRes = await deletePackSize({ packSizeId: e.target.id })
-                                                            // console.log(deleteCategoryRes);
+                                                            // console.log(deletePackSizeRes);
+                                                            setz({...z,open1:true,msg:deletePackSizeRes,type:"success"})
                                                             setState(false)
+                                                            closeSnackBar();
                                                         }}>
                                                             Delete
                                                         </button>
@@ -209,25 +219,22 @@ export default function PackSize() {
                             <input type="number" name="" id="" placeholder={name.placeholder} style={{ paddingLeft: "5px", width: "60%", height: "25px" }} onChange={(e) => {
                                 setData({ ...data, packSize: e.target.value })
                                 // console.log(data.packSize);
-                            }} /><br />
+                            }} min="0"/><br />
                             <input type="number" name="" id="" placeholder={name.placeholder2} style={{ paddingLeft: "5px", width: "60%", height: "25px" }} onChange={(e) => {
                                 setData({ ...data, price: e.target.value })
                                 // console.log(data);
-                            }} />
+                            }} min="0"/>
 
                             <Button variant="contained" id={name.btnName}
                                 onClick={async (e) => {
                                     if (e.target.id == "Add") {
 
                                         var createPackSizeRes = await createPackSize({ packSize: data.packSize, price: data.price })
-
-                                        // console.log(CreateCategoryRes);
-                                        // setCategoryMessage({ ...categoryMessage, state: true, message: CreateCategoryRes });
+                                        // console.log(createPackSizeRes);
+                                        setz({...z,open1:true,msg:createPackSizeRes,type:"success"})
                                         handleClose();
                                         setState(false)
-                                        // setTimeout(()=>{
-                                        //     setCategoryMessage({ ...categoryMessage, state:false, message: "" });
-                                        // },3000)
+                                        closeSnackBar();
                                     }
                                     else {
                                         var updateCategoryRes = await updateCategory({ category })
@@ -242,7 +249,7 @@ export default function PackSize() {
                         </Box>
                     </Modal>
                 </div>
-            </WrapperSnackbar>
+            <Snackbar1 message={z}/>
         </>
     )
 }

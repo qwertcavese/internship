@@ -19,6 +19,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import Loader from './Loader';
+import Snackbar1 from './Snackbar';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -83,7 +84,17 @@ export default function Item() {
 
 
     }, [render])
-    // console.log(items);
+
+    const [z, setz] = React.useState({
+        open1: false,
+        msg: "",
+        type:""
+    })
+    function closeSnackBar() {
+        setTimeout(() => {
+            setz({ ...z, open: false })
+        }, 1500)
+    }
 
     const url = `http://192.168.29.183:8001`
 
@@ -95,12 +106,13 @@ export default function Item() {
             <>
                 <ResponsiveAppBar />
 
-                <Button variant="contained" disableElevation style={{ right: "0px", position: "fixed", marginTop: "80px", marginRight: "10px" }}
+                <Button variant="contained" disableElevation style={{ right: "0px", position: "fixed", marginTop: "80px", marginRight: "20px", zIndex:"1"}}
                     onClick={async (e) => {
                         setName({ ...name, title: "Create New Item", placeholder: "Item Name", placeholderDesc: " Description", placeholderQuantity: "Quantity", placeholderImg: "Image", btn: "add item", btnId: "add", displayField: "hidden" })
                         handleClickOpen();
                         var getAllCategoriesRes = await getAllCategories();
                         setCategory(getAllCategoriesRes)
+                        // console.log("clicked");
                     }}>
                     Add New Item
                 </Button >
@@ -108,7 +120,7 @@ export default function Item() {
                 <div className='body-main' style={{ overflowY: "hidden" }}>
                     <div className='items-main' style={{
                         display: "flex", flexWrap: "wrap",
-                        justifyContent:"space-around"
+                        justifyContent: "space-around"
                     }}>
                         {items.map((val, index) => {
                             var unit = ""
@@ -121,7 +133,7 @@ export default function Item() {
                             }
                             return (
 
-                                <Card style={{ width: "240px",margin:"15px 10px 80px 10px"}} key={index}>
+                                <Card style={{ width: "240px", margin: "15px 10px 80px 10px" }} key={index}>
 
                                     <CardMedia
                                         component="img"
@@ -174,7 +186,9 @@ export default function Item() {
                                         <Button size="small" id={val.id} onClick={async (e) => {
                                             var deleteItemRes = await deleteItems({ itemId: e.target.id })
                                             // console.log(deleteItemRes);
+                                            setz({ ...z, open1: true, msg: deleteItemRes,type:"success" })
                                             setRender(true)
+                                            closeSnackBar()
                                         }}>Delete</Button>
                                     </CardActions>
                                 </Card>
@@ -240,7 +254,7 @@ export default function Item() {
                             </div>
                             <div>
 
-                                <TextField id="filled-basic" label={name.placeholderQuantity} variant="filled" className='item-inpt' onChange={(e) => {
+                                <TextField id="filled-basic" label={name.placeholderQuantity} variant="filled" className='item-inpt' type='number' onChange={(e) => {
                                     setData({ ...data, updtQuantity: e.target.value })
                                 }} />
                             </div>
@@ -288,6 +302,8 @@ export default function Item() {
                                         updtMod: data.updtMod,
                                         updtItemId: data.updtItemId,
                                     })
+                                    // console.log(updateItemRes);
+                                    setz({...z,open1:true,msg:updateItemRes.message,type:"success"})
                                 }
                                 else {
                                     const createItemRes = await createItem({
@@ -299,9 +315,13 @@ export default function Item() {
                                         updtMod: data.updtMod,
                                         updtItemId: data.updtItemId,
                                     })
+                                    // console.log(createItemRes.message);
+                                    setz({...z,open1:true,msg:createItemRes.message,type:"success"})
                                 }
+                                // setLoader(true)
                                 handleClose();
                                 setRender(true);
+                                closeSnackBar();
                             }}>
                                 {name.btn}
                             </Button>
@@ -309,6 +329,7 @@ export default function Item() {
                     </BootstrapDialog>
                 </div>
 
+                <Snackbar1 message={z} />
 
             </>
         )

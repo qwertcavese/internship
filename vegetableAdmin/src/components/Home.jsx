@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ResponsiveAppBar from './Navbar'
 import SignIn from './SignIn'
-import WrapperSnackbar from './WrapperSnackbar';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -18,6 +17,7 @@ import TextField from '@mui/material/TextField';
 import { getAllOrderDetails, updateOrderStatus } from './ApiServices';
 import Reviews from './Reviews';
 import Loader from './Loader';
+import Snackbar1 from './Snackbar';
 
 const style = {
   position: 'absolute',
@@ -55,9 +55,10 @@ export default function Home() {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
   const [category, setCategory] = React.useState("")
-  const [categoryMessage, setCategoryMessage] = React.useState({
-    state: false,
-    message: "",
+  const [z, setz] = React.useState({
+    open1: false,
+    msg: "",
+    type:"",
   })
   const [orders, setOrders] = React.useState([])
   var count = 0;
@@ -70,11 +71,16 @@ export default function Home() {
   const [loader, setLoader] = React.useState(true)
 
 
+  function closeSnackBar() {
+    setTimeout(() => {
+      setz({ ...z, open1: false })
+    }, 1500)
+  }
   React.useEffect(() => {
     async function fetchAllOrdersDetails() {
 
       var getAllOrdersRes = await getAllOrderDetails();
-      setOrders(getAllOrdersRes)
+      setOrders(getAllOrdersRes.orders)
       setLoader(false)
     }
     fetchAllOrdersDetails();
@@ -82,137 +88,146 @@ export default function Home() {
     setState(true)
   }, [state])
   // console.log(navigator.connection.effectiveType);
+  // console.log(orders);
+
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(dateString).toLocaleDateString('en-IN', options);
+};
 
   if (sessionStorage.getItem("adminId") && loader == false) {
 
     return (
       <>
         <ResponsiveAppBar />
-        <WrapperSnackbar>
-          <div className='body-main' style={{}}>
+        {/* <WrapperSnackbar> */}
+        <div className='body-main' style={{}}>
 
-            <div className='get-order-main'>
-              <div className='get-order-container'>
-                <h2 style={{ textAlign: "center" }}>ALL ORDERS</h2><hr />
-                <TableContainer component={Paper} style={{ marginTop: "10px" }}>
-                  <Table sx={{ minWidth: 300}} aria-label="customized table">
-                    <TableHead>
-                      <TableRow>
-                        <StyledTableCell>SR NO.</StyledTableCell>
-                        <StyledTableCell>CUSTOMER ID</StyledTableCell>
-                        <StyledTableCell>ITEMS</StyledTableCell>
-                        <StyledTableCell>ORDER DATE</StyledTableCell>
-                        <StyledTableCell>ACTION</StyledTableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {orders.map((val, index) => {
-                        count = count + 1;
+          <div className='get-order-main'>
+            <div className='get-order-container'>
+              <h2 style={{ textAlign: "center" }}>ALL ORDERS</h2><hr />
+              <TableContainer component={Paper} style={{ marginTop: "10px" }}>
+                <Table sx={{ minWidth: 300 }} aria-label="customized table">
+                  <TableHead>
+                    <TableRow>
+                      <StyledTableCell>SR NO.</StyledTableCell>
+                      <StyledTableCell>CUSTOMER ID</StyledTableCell>
+                      <StyledTableCell>ITEMS</StyledTableCell>
+                      <StyledTableCell>ORDER DATE</StyledTableCell>
+                      <StyledTableCell>ACTION</StyledTableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {orders.map((val, index) => {
+                      count = count + 1;
 
-                        return (
-                          <StyledTableRow key={index}>
-                            <StyledTableCell component="th" scope="row">
-                              {count}
-                            </StyledTableCell>
-                            <StyledTableCell>{val.customer_order_id}</StyledTableCell>
-                            <StyledTableCell>
-                              <Table sx={{ minWidth: 300 }} aria-label="customized table">
-                                <TableHead>
-                                  <TableRow>
-                                    <TableCell style={{ fontWeight: "bold" }}>Item Name</TableCell>
-                                    <TableCell style={{ fontWeight: "bold" }}>Quantity</TableCell>
-                                    <TableCell style={{ fontWeight: "bold" }}>Unit Price</TableCell>
-                                  </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                  {val.items.map((item) => {
-                                    let unit = ""
-                                    if (item.quantity < 1) {
-                                      unit = "g"
-                                      item.quantity = item.quantity * 1000
-                                    }
-                                    else unit = "kg"
-                                    return (
-                                      <TableRow key={item.item_name}>
-                                        <TableCell>{item.item_name}</TableCell>
-                                        <TableCell>{item.quantity}{unit}</TableCell>
-                                        <TableCell>₹{item.unit_price}</TableCell>
-                                      </TableRow>
-                                    )
-                                  })}
-                                </TableBody>
-                              </Table>
-                            </StyledTableCell>
-                            <StyledTableCell>{val.order_date}</StyledTableCell>
-                            <StyledTableCell>
-                              {
-                                val.status == 0 ?
-                                  (
-
-                                    <button className='dc-btn' id={val.customer_order_id} onClick={async () => {
-                                      let updateOrderStatusRes = await updateOrderStatus(val.customer_order_id)
-                                      setState(false)
-                                      setLoader(false)
-                                    }}>
-                                      Pending
-                                    </button>
-                                  ) : (
-                                    <Typography variant="body2" color="textSecondary" style={{ borderRadius: "5px", padding: "7px", background: "rgb(13, 129, 13)", color: "white" }}>
-                                      Completed
-                                    </Typography>
+                      return (
+                        <StyledTableRow key={index}>
+                          <StyledTableCell component="th" scope="row">
+                            {count}
+                          </StyledTableCell>
+                          <StyledTableCell>{val.customer_order_id}</StyledTableCell>
+                          <StyledTableCell>
+                            <Table sx={{ minWidth: 300 }} aria-label="customized table">
+                              <TableHead>
+                                <TableRow>
+                                  <TableCell style={{ fontWeight: "bold" }}>Item Name</TableCell>
+                                  <TableCell style={{ fontWeight: "bold" }}>Quantity</TableCell>
+                                  <TableCell style={{ fontWeight: "bold" }}>Unit Price</TableCell>
+                                </TableRow>
+                              </TableHead>
+                              <TableBody>
+                                {val.items.map((item) => {
+                                  let unit = ""
+                                  if (item.quantity < 1) {
+                                    unit = "g"
+                                    item.quantity = item.quantity * 1000
+                                  }
+                                  else unit = "kg"
+                                  return (
+                                    <TableRow key={item.item_name}>
+                                      <TableCell>{item.item_name}</TableCell>
+                                      <TableCell>{item.quantity}{unit}</TableCell>
+                                      <TableCell>₹{item.unit_price}</TableCell>
+                                    </TableRow>
                                   )
-                              }
-                            </StyledTableCell>
-                          </StyledTableRow>
-                        )
-                      })}
-                    </TableBody>
-                  </Table>
+                                })}
+                              </TableBody>
+                            </Table>
+                          </StyledTableCell>
+                          <StyledTableCell>{formatDate(val.order_date)}</StyledTableCell>
+                          <StyledTableCell>
+                            {
+                              val.status == 0 ?
+                                (
 
-                </TableContainer>
+                                  <button className='dc-btn' id={val.customer_order_id} onClick={async () => {
+                                    let updateOrderStatusRes = await updateOrderStatus(val.customer_order_id)
+                                    // console.log(updateOrderStatusRes);
+                                    setz({...z,open1:true,msg:updateOrderStatusRes,type:"success"})
+                                    setState(false)
+                                    setLoader(false)
+                                    closeSnackBar();
+                                  }}>
+                                    Pending
+                                  </button>
+                                ) : (
+                                  <Typography variant="body2" color="textSecondary" style={{ borderRadius: "5px", padding: "7px", background: "rgb(13, 129, 13)", color: "white" }}>
+                                    Completed
+                                  </Typography>
+                                )
+                            }
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
 
-              </div>
+              </TableContainer>
+
             </div>
-            <Reviews />
           </div>
+          <Reviews />
+        </div>
 
 
-          {/* modal box code */}
-          <div>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                  {name.head}
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                  <Box
-                    component="form"
-                    sx={{
-                      '& > :not(style)': { m: 1, width: '25ch' },
-                      display: "flex",
-                    }}
-                    noValidate
-                    autoComplete="off"
-                  >
-                    <TextField id="outlined-basic" placeholder={name.placeholder} variant="outlined"
-                      style={{ border: "1px solid blue", borderRadius: "5px", height: "35px" }}
-                      value={category}
-                      onChange={(e) => setCategory(e.target.value)}
-                    />
+        {/* modal box code */}
+        <div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                {name.head}
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                    display: "flex",
+                  }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <TextField id="outlined-basic" placeholder={name.placeholder} variant="outlined"
+                    style={{ border: "1px solid blue", borderRadius: "5px", height: "35px" }}
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  />
 
-                  </Box>
-                </Typography>
-              </Box>
-            </Modal>
-          </div>
+                </Box>
+              </Typography>
+            </Box>
+          </Modal>
+        </div>
 
 
-        </WrapperSnackbar>
+        <Snackbar1 message={z} />
       </>
     )
   }
