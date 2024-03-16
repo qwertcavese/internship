@@ -25,13 +25,14 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     bgcolor: 'white',
-    p: 4,
     color: 'black',
-    padding: "20px",
+    padding: "15px",
     width: "auto",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    gap: "25px",
+    borderRadius: "10px",
 }
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -85,10 +86,10 @@ export default function PackSize() {
             setLoader(false)
         }
         getAllItemsFetch();
-        
-        
+
+
         async function fetchData() {
-            
+
             var getAllPackSizeRes = await getAllPackSize();
             setPackSize(getAllPackSizeRes.all_pack_sizes)
             setLoader(false)
@@ -98,10 +99,10 @@ export default function PackSize() {
     }, [state])
 
 
-    const[z,setz]=React.useState({
-        open1:false,
-        msg:"",
-        type:"",
+    const [z, setz] = React.useState({
+        open1: false,
+        msg: "",
+        type: "",
     })
     function closeSnackBar() {
         setTimeout(() => {
@@ -112,9 +113,9 @@ export default function PackSize() {
 
         return (
             <>
-            <ResponsiveAppBar />
+                <ResponsiveAppBar />
 
-            {/* <WrapperSnackbar data={categoryMessage}> */}
+                {/* <WrapperSnackbar data={categoryMessage}> */}
 
                 <div className='body-main'>
                     <div className='pack-size-main'>
@@ -130,7 +131,7 @@ export default function PackSize() {
                                 >Add Pack</Button>
                             </div><hr />
 
-                            <TableContainer component={Paper} style={{ marginTop: "10px"}}>
+                            <TableContainer component={Paper} style={{ marginTop: "10px" }}>
                                 <Table sx={{ minWidth: 300 }} aria-label="customized table">
                                     <TableHead>
                                         <TableRow>
@@ -171,7 +172,7 @@ export default function PackSize() {
                                                         <button className='dc-btn' id={val.pack_size_id} onClick={async (e) => {
                                                             var deletePackSizeRes = await deletePackSize({ packSizeId: e.target.id })
                                                             // console.log(deletePackSizeRes);
-                                                            setz({...z,open1:true,msg:deletePackSizeRes,type:"success"})
+                                                            setz({ ...z, open1: true, msg: deletePackSizeRes, type: "success" })
                                                             setState(false)
                                                             closeSnackBar();
                                                         }}>
@@ -203,45 +204,66 @@ export default function PackSize() {
                         <Box sx={style}>
                             <Typography id="modal-modal-title" variant="h6" component="h2">
                                 {name.head}
-                            </Typography>
-                            <select style={{ width: "85%", textAlign: "center", height: "30px" }} onClick={(e) => {
-                                // console.log(e.target.value);
-                                sessionStorage.setItem("itemId", e.target.value)
-                            }}>
-                                <option value="">Select Pack</option>
-                                {allItems.map((value, index) => {
-                                    return (
+                            </Typography >
 
-                                        <option key={index} value={value.id} id={value.id}>{value.name}</option>
-                                    );
-                                })}
-                            </select><br />
-                            <input type="number" name="" id="" placeholder={name.placeholder} style={{ paddingLeft: "5px", width: "60%", height: "25px" }} onChange={(e) => {
-                                setData({ ...data, packSize: e.target.value })
-                                // console.log(data.packSize);
-                            }} min="0"/><br />
-                            <input type="number" name="" id="" placeholder={name.placeholder2} style={{ paddingLeft: "5px", width: "60%", height: "25px" }} onChange={(e) => {
-                                setData({ ...data, price: e.target.value })
-                                // console.log(data);
-                            }} min="0"/>
+                            <div style={{ width: "100%" }}>
+
+                                <select id='pack-select-inpt' style={{ width: "85%", textAlign: "center", height: "30px" }} onClick={(e) => {
+                                    // console.log(e.target.value);
+                                    sessionStorage.setItem("itemId", e.target.value)
+                                    document.getElementById("pack-select").style.contentVisibility="hidden"
+                                }}>
+                                    <option value="">Select Pack</option>
+                                    {allItems.map((value, index) => {
+                                        return (
+
+                                            <option key={index} value={value.id} id={value.id}>{value.name}</option>
+                                        );
+                                    })}
+                                </select><br />
+                                <div id='pack-select' style={{ color: "red", fontSize: "15px",position:"absolute", contentVisibility: "hidden" }}>Please Select Pack</div>
+                            </div>
+                            <div style={{ width: "100%" }}>
+
+                                <input type="number" name="" id="pack-size-inpt" placeholder={name.placeholder} style={{ paddingLeft: "5px", width: "60%", height: "25px" }} onChange={(e) => {
+                                    setData({ ...data, packSize: e.target.value })
+                                    // console.log(data.packSize);
+                                    document.getElementById("pack-size").style.contentVisibility="hidden"
+                                }} min="0" /><br />
+                                <div id='pack-size' style={{ color: "red", fontSize: "15px", contentVisibility: "hidden",position:"absolute" }}>Please Enter Size</div>
+                            </div>
+                            <div style={{ width: "100%", }}>
+
+                                <input type="number" name="" id="pack-price-inpt" placeholder={name.placeholder2} style={{ paddingLeft: "5px", width: "60%", height: "25px" }} onChange={(e) => {
+                                    setData({ ...data, price: e.target.value })
+                                    // console.log(data);
+                                    document.getElementById("pack-price").style.contentVisibility="hidden"
+                                }} min="0" />
+                                <div id='pack-price' style={{ color: "red", fontSize: "15px", contentVisibility: "hidden",position:"absolute" }}>Please Enter price</div>
+                            </div>
 
                             <Button variant="contained" id={name.btnName}
                                 onClick={async (e) => {
-                                    if (e.target.id == "Add") {
+
+                                    if (document.getElementById("pack-select-inpt").value == "") {
+                                        document.getElementById("pack-select").style.contentVisibility = "visible"
+                                    }
+                                    else if (document.getElementById("pack-size-inpt").value == "") {
+                                        document.getElementById("pack-size").style.contentVisibility = "visible"
+                                    }
+                                    else if (document.getElementById("pack-price-inpt").value == "") {
+                                        document.getElementById("pack-price").style.contentVisibility = "visible"
+                                    }
+
+                                    else {
 
                                         var createPackSizeRes = await createPackSize({ packSize: data.packSize, price: data.price })
                                         // console.log(createPackSizeRes);
-                                        setz({...z,open1:true,msg:createPackSizeRes,type:"success"})
-                                        handleClose();
-                                        setState(false)
-                                        closeSnackBar();
-                                    }
-                                    else {
-                                        var updateCategoryRes = await updateCategory({ category })
-                                        // console.log(updateCategoryRes);
+                                        setz({ ...z, open1: true, msg: createPackSizeRes, type: "success" })
                                         handleClose();
                                         setState(false)
                                     }
+
                                 }
                                 }
                                 style={{ width: "60%", height: "10%", marginTop: "10px" }}
@@ -249,10 +271,10 @@ export default function PackSize() {
                         </Box>
                     </Modal>
                 </div>
-            <Snackbar1 message={z}/>
-        </>
-    )
-}
-else if(loader==true) return <Loader/>
-else return window.location.pathname="/"
+                <Snackbar1 message={z} />
+            </>
+        )
+    }
+    else if (loader == true) return <Loader />
+    else return window.location.pathname = "/"
 }

@@ -88,13 +88,33 @@ export default function Item() {
     const [z, setz] = React.useState({
         open1: false,
         msg: "",
-        type:""
+        type: ""
     })
     function closeSnackBar() {
         setTimeout(() => {
             setz({ ...z, open: false })
         }, 1500)
     }
+
+    // validation
+    function validate() {
+        if (document.getElementById("item-select-field").value == "") {
+            document.getElementById("item-select-inpt").style.contentVisibility = "visible"
+        }
+        else if (document.getElementById("item-field").value == "") {
+            document.getElementById("item-inpt").style.contentVisibility = "visible"
+        }
+        else if (document.getElementById("item-desc").value == "") {
+            document.getElementById("item-desc-inpt").style.contentVisibility = "visible"
+        }
+        else if (document.getElementById("item-quantity").value == "") {
+            document.getElementById("item-quantity-inpt").style.contentVisibility = "visible"
+        }
+        else if (document.getElementById("item-img").value == "") {
+            document.getElementById("item-img-inpt").style.contentVisibility = "visible"
+        }
+    }
+
 
     const url = `http://192.168.29.183:8001`
 
@@ -106,7 +126,7 @@ export default function Item() {
             <>
                 <ResponsiveAppBar />
 
-                <Button variant="contained" disableElevation style={{ right: "0px", position: "fixed", marginTop: "80px", marginRight: "20px", zIndex:"1"}}
+                <Button variant="contained" disableElevation style={{ right: "0px", position: "fixed", marginTop: "80px", marginRight: "20px", zIndex: "1" }}
                     onClick={async (e) => {
                         setName({ ...name, title: "Create New Item", placeholder: "Item Name", placeholderDesc: " Description", placeholderQuantity: "Quantity", placeholderImg: "Image", btn: "add item", btnId: "add", displayField: "hidden" })
                         handleClickOpen();
@@ -186,7 +206,7 @@ export default function Item() {
                                         <Button size="small" id={val.id} onClick={async (e) => {
                                             var deleteItemRes = await deleteItems({ itemId: e.target.id })
                                             // console.log(deleteItemRes);
-                                            setz({ ...z, open1: true, msg: deleteItemRes,type:"success" })
+                                            setz({ ...z, open1: true, msg: deleteItemRes, type: "success" })
                                             setRender(true)
                                             closeSnackBar()
                                         }}>Delete</Button>
@@ -224,12 +244,13 @@ export default function Item() {
                         >
                             <CloseIcon />
                         </IconButton>
-                        <DialogContent dividers style={{ display: "grid", gap: "15px" }}>
+                        <DialogContent dividers style={{ display: "grid", gap: "25px" }}>
 
                             <div>
 
-                                <select name="" id="" className='item-inpt' style={{ textAlign: "center", height: "55px", border: "0px", background: "whiteSmoke" }} onChange={(e) => {
+                                <select name="" id="item-select-field" className='item-inpt' style={{ textAlign: "center", height: "55px", border: "0px", background: "whiteSmoke" }} onChange={(e) => {
                                     setData({ ...data, updtCategory: e.target.value })
+                                    document.getElementById("item-select-inpt").style.contentVisibility = "hidden"
                                 }}>
                                     <option value="">Select Category</option>
                                     {category.map((val, index) => {
@@ -239,33 +260,42 @@ export default function Item() {
                                     })}
                                 </select>
                                 <hr />
+                                <div id='item-select-inpt' style={{ color: "red", position: "absolute", fontSize: "15px", contentVisibility: "hidden" }}>Please select Category</div>
                             </div>
                             <div>
 
-                                <TextField id="filled-basic" label={name.placeholder} variant="filled" className='item-inpt' onChange={(e) => {
+                                <TextField id="item-field" label={name.placeholder} variant="filled" className='item-inpt' onChange={(e) => {
                                     setData({ ...data, updtItem: e.target.value })
+                                    document.getElementById("item-inpt").style.contentVisibility = "hidden"
                                 }} />
+                                <div id='item-inpt' style={{ color: "red", position: "absolute", fontSize: "15px", contentVisibility: "hidden" }}>Please Enter Item</div>
                             </div>
                             <div>
 
-                                <TextField id="filled-basic" label={name.placeholderDesc} variant="filled" className='item-inpt' onChange={(e) => {
+                                <TextField id="item-desc" label={name.placeholderDesc} variant="filled" className='item-inpt' onChange={(e) => {
                                     setData({ ...data, updtDesc: e.target.value })
+                                    document.getElementById("item-desc-inpt").style.contentVisibility = "hidden"
                                 }} />
+                                <div id='item-desc-inpt' style={{ color: "red", position: "absolute", fontSize: "15px", contentVisibility: "hidden" }}>Please Enter Description</div>
                             </div>
                             <div>
 
-                                <TextField id="filled-basic" label={name.placeholderQuantity} variant="filled" className='item-inpt' type='number'  onChange={(e) => {
+                                <TextField id="item-quantity" label={name.placeholderQuantity} variant="filled" className='item-inpt' type='number' onChange={(e) => {
                                     setData({ ...data, updtQuantity: e.target.value })
-                                }} min="0"/>
+                                    document.getElementById("item-quantity-inpt").style.contentVisibility = "hidden"
+                                }} min="0" />
+                                <div id='item-quantity-inpt' style={{ color: "red", position: "absolute", fontSize: "15px", contentVisibility: "hidden" }}>Please Enter Quantity</div>
                             </div>
                             <div>
 
-                                <TextField id="filled-basic" type='file' variant="filled" className='item-inpt'
+                                <TextField id="item-img" type='file' variant="filled" className='item-inpt'
                                     name="image" accept="image/*"
                                     onChange={(e) => {
                                         setData({ ...data, updtImg: e.target.files[0] })
                                         // console.log(data.updtImg);
+                                        document.getElementById("item-img-inpt").style.contentVisibility = "hidden"
                                     }} />
+                                <div id='item-img-inpt' style={{ color: "red", position: "absolute", fontSize: "15px", contentVisibility: "hidden" }}>Please Select Image File</div>
                             </div>
                             <div style={{ contentVisibility: name.displayField }}>
                                 <label htmlFor="">Active</label>
@@ -286,42 +316,52 @@ export default function Item() {
                                         // console.log(data.updtImg.length);
                                     }
                                 }} />
+                                 <div id='item-img-inpt' style={{ color: "red", position: "absolute", fontSize: "15px", contentVisibility: "hidden" }}>Please Any One</div>
                             </div>
                         </DialogContent>
                         <DialogActions>
                             <Button id={name.btnId} autoFocus onClick={async (e) => {
 
-                                if (e.target.id == "updt") {
+                                if (document.getElementById("item-select-field").value == "" || document.getElementById("item-field").value == "" || document.getElementById("item-desc").value == "" || document.getElementById("item-quantity").value == "" || document.getElementById("item-img").value == "") {
 
-                                    const updateItemRes = await updateItem({
-                                        updtItem: data.updtItem,
-                                        updtDesc: data.updtDesc,
-                                        updtQuantity: data.updtQuantity,
-                                        updtImg: data.updtImg,
-                                        updtCategory: data.updtCategory,
-                                        updtMod: data.updtMod,
-                                        updtItemId: data.updtItemId,
-                                    })
-                                    // console.log(updateItemRes);
-                                    setz({...z,open1:true,msg:updateItemRes.message,type:"success"})
+                                    validate();
                                 }
                                 else {
-                                    const createItemRes = await createItem({
-                                        updtItem: data.updtItem,
-                                        updtDesc: data.updtDesc,
-                                        updtQuantity: data.updtQuantity,
-                                        updtImg: data.updtImg,
-                                        updtCategory: data.updtCategory,
-                                        updtMod: data.updtMod,
-                                        updtItemId: data.updtItemId,
-                                    })
-                                    // console.log(createItemRes.message);
-                                    setz({...z,open1:true,msg:createItemRes.message,type:"success"})
+
+
+                                    if (e.target.id == "updt") {
+
+                                        const updateItemRes = await updateItem({
+                                            updtItem: data.updtItem,
+                                            updtDesc: data.updtDesc,
+                                            updtQuantity: data.updtQuantity,
+                                            updtImg: data.updtImg,
+                                            updtCategory: data.updtCategory,
+                                            updtMod: data.updtMod,
+                                            updtItemId: data.updtItemId,
+                                        })
+                                        // console.log(updateItemRes);
+                                        setz({ ...z, open1: true, msg: updateItemRes.message, type: "success" })
+                                    }
+                                    else {
+                                        const createItemRes = await createItem({
+                                            updtItem: data.updtItem,
+                                            updtDesc: data.updtDesc,
+                                            updtQuantity: data.updtQuantity,
+                                            updtImg: data.updtImg,
+                                            updtCategory: data.updtCategory,
+                                            updtMod: data.updtMod,
+                                            updtItemId: data.updtItemId,
+                                        })
+                                        // console.log(createItemRes.message);
+                                        setz({ ...z, open1: true, msg: createItemRes.message, type: "success" })
+                                    }
+                                    // setLoader(true)
+                                    handleClose();
+                                    setRender(true);
+                                    closeSnackBar();
                                 }
-                                // setLoader(true)
-                                handleClose();
-                                setRender(true);
-                                closeSnackBar();
+                                console.log(flag);
                             }}>
                                 {name.btn}
                             </Button>

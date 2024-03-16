@@ -178,31 +178,44 @@ export default function Category() {
                                     noValidate
                                     autoComplete="off"
                                 >
-                                    <TextField id="outlined-basic" placeholder={name.placeholder} variant="outlined"
-                                        style={{ border: "1px solid blue", borderRadius: "5px", height: "35px" }}
-                                        value={category}
-                                        onChange={(e) => setCategory(e.target.value)}
-                                    />
+                                    <div>
+
+                                        <TextField id="category-field" placeholder={name.placeholder} variant="outlined"
+                                            style={{ border: "1px solid blue", borderRadius: "5px", height: "35px" }}
+                                            value={category}
+                                            onChange={(e) => {
+                                                setCategory(e.target.value)
+                                                document.getElementById("category-inpt").style.contentVisibility = "hidden"
+                                            }}
+                                        />
+                                        <div id='category-inpt' style={{ color: "red", position: "absolute", fontSize: "15px", contentVisibility: "hidden" }}>Please Enter Category</div>
+                                    </div>
 
 
                                     <Button variant="contained" id={name.btnName}
                                         onClick={async (e) => {
-                                            if (e.target.id == "Add") {
-
-                                                var CreateCategoryRes = await CreateCategory({ category })
-
-                                                setz({ ...z, open1: true, msg: CreateCategoryRes, type: "success" })
-                                                handleClose();
-                                                setState(false)
+                                            if (document.getElementById("category-field").value == "") {
+                                                document.getElementById("category-inpt").style.contentVisibility = "visible"
                                             }
                                             else {
-                                                var updateCategoryRes = await updateCategory({ category })
-                                                setz({ ...z, open1: true, msg: updateCategoryRes, type: "success" })
-                                                handleClose();
-                                                setState(false)
+
+                                                if (e.target.id == "Add") {
+
+                                                    var CreateCategoryRes = await CreateCategory({ category })
+
+                                                    setz({ ...z, open1: true, msg: CreateCategoryRes, type: "success" })
+                                                    handleClose();
+                                                    setState(false)
+                                                }
+                                                else {
+                                                    var updateCategoryRes = await updateCategory({ category })
+                                                    setz({ ...z, open1: true, msg: updateCategoryRes, type: "success" })
+                                                    handleClose();
+                                                    setState(false)
+                                                }
+                                                // setLoader(true)
+                                                closeSnackBar();
                                             }
-                                            // setLoader(true)
-                                            closeSnackBar();
                                         }
                                         }
                                         style={{ width: "28%", height: "10%" }}
