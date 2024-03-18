@@ -157,7 +157,7 @@ export default function Item() {
 
                                     <CardMedia
                                         component="img"
-                                        alt="green iguana"
+                                        alt={val.name}
                                         height="240"
                                         image={url + val.image_path}
                                     />

@@ -106,7 +106,7 @@ export default function PackSize() {
     })
     function closeSnackBar() {
         setTimeout(() => {
-            setz({ ...z, open: false })
+            setz({ ...z, open1: false })
         }, 1500)
     }
     if (sessionStorage.getItem("adminId") && loader == false) {
@@ -115,7 +115,7 @@ export default function PackSize() {
             <>
                 <ResponsiveAppBar />
 
-                {/* <WrapperSnackbar data={categoryMessage}> */}
+               
 
                 <div className='body-main'>
                     <div className='pack-size-main'>
@@ -211,7 +211,7 @@ export default function PackSize() {
                                 <select id='pack-select-inpt' style={{ width: "85%", textAlign: "center", height: "30px" }} onClick={(e) => {
                                     // console.log(e.target.value);
                                     sessionStorage.setItem("itemId", e.target.value)
-                                    document.getElementById("pack-select").style.contentVisibility="hidden"
+                                    document.getElementById("pack-select").style.contentVisibility = "hidden"
                                 }}>
                                     <option value="">Select Pack</option>
                                     {allItems.map((value, index) => {
@@ -221,25 +221,25 @@ export default function PackSize() {
                                         );
                                     })}
                                 </select><br />
-                                <div id='pack-select' style={{ color: "red", fontSize: "15px",position:"absolute", contentVisibility: "hidden" }}>Please Select Pack</div>
+                                <div id='pack-select' style={{ color: "red", fontSize: "15px", position: "absolute", contentVisibility: "hidden" }}>Please Select Pack</div>
                             </div>
                             <div style={{ width: "100%" }}>
 
                                 <input type="number" name="" id="pack-size-inpt" placeholder={name.placeholder} style={{ paddingLeft: "5px", width: "60%", height: "25px" }} onChange={(e) => {
                                     setData({ ...data, packSize: e.target.value })
                                     // console.log(data.packSize);
-                                    document.getElementById("pack-size").style.contentVisibility="hidden"
+                                    document.getElementById("pack-size").style.contentVisibility = "hidden"
                                 }} min="0" /><br />
-                                <div id='pack-size' style={{ color: "red", fontSize: "15px", contentVisibility: "hidden",position:"absolute" }}>Please Enter Size</div>
+                                <div id='pack-size' style={{ color: "red", fontSize: "15px", contentVisibility: "hidden", position: "absolute" }}>Please Enter Size</div>
                             </div>
                             <div style={{ width: "100%", }}>
 
                                 <input type="number" name="" id="pack-price-inpt" placeholder={name.placeholder2} style={{ paddingLeft: "5px", width: "60%", height: "25px" }} onChange={(e) => {
                                     setData({ ...data, price: e.target.value })
                                     // console.log(data);
-                                    document.getElementById("pack-price").style.contentVisibility="hidden"
+                                    document.getElementById("pack-price").style.contentVisibility = "hidden"
                                 }} min="0" />
-                                <div id='pack-price' style={{ color: "red", fontSize: "15px", contentVisibility: "hidden",position:"absolute" }}>Please Enter price</div>
+                                <div id='pack-price' style={{ color: "red", fontSize: "15px", contentVisibility: "hidden", position: "absolute" }}>Please Enter price</div>
                             </div>
 
                             <Button variant="contained" id={name.btnName}
@@ -260,7 +260,8 @@ export default function PackSize() {
                                         var createPackSizeRes = await createPackSize({ packSize: data.packSize, price: data.price })
                                         // console.log(createPackSizeRes);
                                         setz({ ...z, open1: true, msg: createPackSizeRes, type: "success" })
-                                        handleClose();
+                                        handleClose()
+                                        closeSnackBar()
                                         setState(false)
                                     }
 
