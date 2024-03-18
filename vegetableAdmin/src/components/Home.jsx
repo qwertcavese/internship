@@ -89,6 +89,11 @@ export default function Home() {
   }, [state])
   // console.log(navigator.connection.effectiveType);
   // console.log(orders);
+  // var lastIndex=localStorage.getItem("user").lastIndexOf(",")
+  // var email=localStorage.getItem("user").substring(0,lastIndex)
+  // var password=localStorage.getItem("user").substring(lastIndex+1,localStorage.getItem("user").length)
+  // console.log(email);
+  // console.log(password);
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };

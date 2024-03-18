@@ -32,8 +32,10 @@ export default function SignIn() {
     });
   };
 
-  const [email, setEmail] = React.useState("")
-  const [pwd, setPwd] = React.useState("")
+  const [email, setEmail] = React.useState(localStorage.getItem("email"))
+  const [pwd, setPwd] = React.useState(localStorage.getItem("password"))
+  const[chk,setChk]=React.useState(false)
+  // console.log(chk);
 
   const navigate = useNavigate();
 
@@ -93,8 +95,16 @@ export default function SignIn() {
             />
             <div id='pwd-inpt' style={{ color: "red", position: "absolute", marginTop: "-10px", fontSize: "12px", contentVisibility: "hidden" }}>Please Enter password</div>
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" color="primary" id='chkbox' />}
               label="Remember me"
+              onClick={()=>{
+                if(document.getElementById("chkbox").checked==true){
+                  setChk(true)
+                }
+                else{
+                  setChk(false)
+                }
+              }}
             />
             <Button
               type="button"
@@ -124,9 +134,11 @@ export default function SignIn() {
                       }
                     }
                   })
-                  console.log(adminLoginres);
+                  if(adminLoginres=="Login Successfully" && chk==true){
+                    localStorage.setItem("email",email)
+                    localStorage.setItem("password",pwd)
                 }
-              }}
+              }}}
             >
               Sign In
             </Button>
